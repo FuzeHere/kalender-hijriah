@@ -1,0 +1,147 @@
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.location-info {
+    color: #7f8c8d;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-controls button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar-controls button:hover {
+    background-color: #2980b9;
+}
+
+#current-month-year {
+    font-weight: bold;
+    font-size: 8px;
+    overflow: hidden;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #34495e;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-header div {
+    padding: 12px 5px;
+    text-align: center;
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background-color: #ddd;
+}
+
+.calendar-day {
+    background-color: #fff;
+    padding: 10px;
+    min-height: 90px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.calendar-day:hover {
+    background-color: #ecf0f1;
+}
+
+.calendar-body.is-today .gregorian-date {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.calendar-day.is-other-month {
+    background-color: #f9f9f9;
+}
+
+.gregorian-date {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hijri-date {
+    font-size: 0.9em;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.loading-spinner {
+    border-radius: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linier infinite;
+    margin: 20px auto;
+    display: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% {transform: rotate(360deg); }
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #95a5a6;
+}
+
+.footer a {
+    color: #2980b9;
+    text-decoration: none;
+}

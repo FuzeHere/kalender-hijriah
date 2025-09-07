@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender Hijriah 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Kalendar Hijriah 2025</h1>
+        <p class="location-info">Mendeteksi lokasi Anda...</p>
+
+        <div class="calendar-controls">
+            <button id="prev-month">&lt; Sebelumnya</button>
+            <h2 id="current-month-year"></h2>
+            <button id="next-month">Berikutnya &gt;</button>
+        </div>
+
+        <div class="calendar">
+            <div class="calendar-header">
+                <div>Ahad</div>
+                <div>Itsnain</div>
+                <div>Tsulatsa</div>
+                <div>Arbi'a</div>
+                <div>Khomis</div>
+                <div>Jum'ah</div>
+                <div>Sabt</div>
+            </div>
+            <div class="calendar-body" id="calendar-body"></div>
+        </div>
+        
+        <div class="loading-spinner" id="loader"></div>
+        <div class="footer">
+            Dibuat dengan data dari <a href="https://aladhan.com/prayer-times-api" target="_blank">Al-Adhan API</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
