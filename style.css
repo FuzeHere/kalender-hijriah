@@ -88,8 +88,8 @@ h1 {
     background-color: #ecf0f1;
 }
 
-.calendar-body.is-today .gregorian-date {
-    background-color: #e74c3c;
+.calendar-day.is-today .gregorian-date {
+    background-color: #e74c3c; 
     color: white;
 }
 

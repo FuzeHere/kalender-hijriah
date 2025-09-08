@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             locationInfo.textContent = 'Browser tidak mendukung deteksi lokasi. Menampilkan kalender untuk Jakarta.';
             const jakartaLat = -6.2088;
             const jakartaLon = 106.8456;
-            // PERBAIKAN: Parameter longitude (jakartaLon) kurang
+            
             fetchCalendarData(currentDate.getFullYear(), currentDate.getMonth() + 1, jakartaLat, jakartaLon);
         }
     }
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             const respons = await fetch(apiUrl);
-            // PERBAIKAN: Gunakan variabel 'respons' (r kecil), bukan 'Response' (R besar)
+           
             if (!respons.ok) {
                 throw new Error(`HTTP error! status: ${respons.status}`);
             }
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fungsi menampilkan kalender ke web
     function renderCalendar() {
-        // PERBAIKAN: typo 'lenght' menjadi 'length'
+        
         if (!calendarData || calendarData.length === 0) return;
 
         calendarBody.innerHTML = '';
@@ -95,8 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // mengecek hari apa hari ini
             const today = new Date();
-            // PERBAIKAN: typo 'readeble' menjadi 'readable'
+            
             const dayDate = new Date(day.date.readable);
+            
             if (today.toDateString() === dayDate.toDateString()) {
                 dayCell.classList.add('is-today');
             }
@@ -107,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="hijri-date">${day.date.hijri.day} ${day.date.hijri.month.ar}</div>
             `;
             
-            // !! PERBAIKAN UTAMA YANG HILANG !!
             // Tambahkan sel tanggal yang sudah dibuat ke dalam kalender
             calendarBody.appendChild(dayCell);
         });
