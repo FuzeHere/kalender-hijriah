@@ -1,147 +1,195 @@
+/* --- Pengaturan Dasar --- */
 body {
-    font-family: 'IBM Plex Sans', sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Inter', sans-serif;
+    background-color: #F5F3EF; /* Warna beige seperti di gambar */
     color: #333;
     display: flex;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
 }
 
-.container {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 900px;
-    text-align: center;
+/* --- Tata Letak Utama --- */
+.main-container {
+    display: flex;
+    width: 95%;
+    max-width: 1200px;
+    background-color: #F5F3EF;
+    padding: 20px;
 }
 
-h1 {
-    color: #2c3e50;
+.sidebar {
+    flex: 0 0 300px; /* Lebar sidebar tetap */
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-container {
+    flex-grow: 1; /* Kalender mengisi sisa ruang */
+}
+
+/* --- Sidebar (Info Bulan & Penjelasan) --- */
+.month-display .year {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+.month-display h1 {
+    font-size: 6em;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+}
+.month-display h2 {
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 5px; /* Efek spasi antar huruf */
+    text-transform: uppercase;
+    color: #888;
+    margin: 10px 0 0 0;
+}
+
+.fasting-explanation {
+    margin-top: auto; /* Mendorong penjelasan ke bawah */
+    padding-top: 40px;
+}
+
+.fasting-explanation h3 {
+    font-size: 1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.fasting-explanation h4 {
+    font-weight: 700;
     margin-bottom: 5px;
 }
-
-.location-info {
-    color: #7f8c8d;
+.fasting-explanation p {
+    font-size: 0.8em;
+    color: #666;
+    line-height: 1.6;
     margin-top: 0;
     margin-bottom: 20px;
 }
 
+/* --- Kontrol Kalender --- */
 .calendar-controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Tombol di kanan */
     align-items: center;
     margin-bottom: 20px;
 }
-
 .calendar-controls button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #333;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1.2em;
+    margin: 0 5px;
 }
-
 .calendar-controls button:hover {
-    background-color: #2980b9;
+    background-color: #e9e7e2;
 }
+#current-month-year { display: none; } 
 
-#current-month-year {
-    font-weight: bold;
-    font-size: 8px;
-    overflow: hidden;
+/* --- Grid Kalender --- */
+.calendar {
+    background-color: #fff;
+    border: 1px solid #ddd;
 }
-
 .calendar-header {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    background-color: #34495e;
-    color: white;
-    font-weight: bold;
+    background-color: #EAEAEA;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 500;
 }
-
 .calendar-header div {
-    padding: 12px 5px;
+    padding: 15px 10px;
     text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 
 .calendar-body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 1px;
-    background-color: #ddd;
 }
 
 .calendar-day {
-    background-color: #fff;
-    padding: 10px;
-    min-height: 90px;
+    min-height: 100px;
+    padding: 8px;
     position: relative;
-    transition: background-color 0.3s;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+/* Menghilangkan border di kolom terakhir */
+.calendar-day:nth-child(7n) {
+    border-right: none;
 }
 
-.calendar-day:hover {
-    background-color: #ecf0f1;
-}
-
-.calendar-day.is-today .gregorian-date {
-    background-color: #e74c3c; 
-    color: white;
-}
-
+/* Sel kosong (untuk hari di luar bulan ini) */
 .calendar-day.is-other-month {
-    background-color: #f9f9f9;
+    background-color: #FAFAFA;
+}
+
+/* --- Penanda Puasa & Tampilan Tanggal --- */
+.fasting-info {
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.date-container {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
 }
 
 .gregorian-date {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 5px;
-    background-color: #3498db;
-    color: white;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #999;
 }
 
-.hijri-date {
-    font-size: 0.9em;
-    color: #27ae60;
+.hijri-date-cell {
+    font-size: 0.75em;
+    color: #b0b0b0;
+    font-weight: 500;
+}
+
+/* --- Penanda Hari Ini (Today Marker) --- */
+.calendar-day.is-today {
+    background-color: #edc8ae; /* Warna abu-abu terang untuk seluruh kotak */
+}
+
+/* Pastikan warna teks di dalamnya tetap terbaca */
+.calendar-day.is-today .gregorian-date {
+    color: #333; /* Warna teks gelap */
+    font-weight: bold;
+    background-color: transparent; 
+}
+
+.calendar-day.is-today .hijri-date-cell {
+    color: #666; /* Warna teks abu-abu */
     font-weight: bold;
 }
 
 .loading-spinner {
-    border-radius: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #333;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    animation: spin 1s linier infinite;
-    margin: 20px auto;
-    display: auto;
+    animation: spin 1s linear infinite;
+    margin: 50px auto;
+    display: none;
 }
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
-    100% {transform: rotate(360deg); }
-}
-
-.footer {
-    margin-top: 20px;
-    font-size: 0.8em;
-    color: #95a5a6;
-}
-
-.footer a {
-    color: #2980b9;
-    text-decoration: none;
+    100% { transform: rotate(360deg); }
 }
