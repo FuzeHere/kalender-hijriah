@@ -7,36 +7,43 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Kalendar Hijriah 2025</h1>
-        <p class="location-info">Mendeteksi lokasi Anda...</p>
-
-        <div class="calendar-controls">
-            <button id="prev-month">&lt; Sebelumnya</button>
-            <h2 id="current-month-year"></h2>
-            <button id="next-month">Berikutnya &gt;</button>
-        </div>
-
-        <div class="calendar">
-            <div class="calendar-header">
-                <div>Ahad</div>
-                <div>Itsnain</div>
-                <div>Tsulatsa</div>
-                <div>Arbi'a</div>
-                <div>Khomis</div>
-                <div>Jum'ah</div>
-                <div>Sabt</div>
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="month-display">
+                <span id="gregorian-year" class="year">2025</span> / <span id="hijri-year" class="year">1446 H</span>
+                <h1 id="hijri-month-name">RAJAB</h1>
+                <h2 id="gregorian-month-name">JANUARY</h2>
             </div>
-            <div class="calendar-body" id="calendar-body"></div>
-        </div>
-        
-        <div class="loading-spinner" id="loader"></div>
-        <div class="footer">
-            Dibuat dengan data dari <a href="https://aladhan.com/prayer-times-api" target="_blank">Al-Adhan API</a>
-        </div>
+            <div class="fasting-explanation">
+                <h3>PENJELASAN PUASA</h3>
+                <div id="fasting-details">
+                    </div>
+            </div>
+        </aside>
+
+        <main class="calendar-container">
+            <div class="calendar-controls">
+                <button id="prev-month">&lt;</button>
+                <div id="current-month-year"></div>
+                <button id="next-month">&gt;</button>
+            </div>
+            <div class="calendar">
+                <div class="calendar-header">
+                    <div>Ahad</div>
+                    <div>Itsnain</div>
+                    <div>Tsulatsa</div>
+                    <div>Arbi'a</div>
+                    <div>Khomis</div>
+                    <div>Jum'ah</div>
+                    <div>Sabt</div>
+                </div>
+                <div class="calendar-body" id="calendar-body"></div>
+            </div>
+            <div class="loading-spinner" id="loader"></div>
+        </main>
     </div>
 
     <script src="script.js"></script>
